@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', fetchCategories);
-
 function fetchCategories() {
     fetch('categories.json')
     .then(response => response.json())

@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', onLoad);
-
-function onLoad() {
+function main() {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');
     const itemsHeading = document.getElementById('items-heading');
