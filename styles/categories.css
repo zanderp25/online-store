@@ -1,0 +1,35 @@
+.categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.category {
+    background-color: #f9f9f9;
+    color: #000;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.category h3 {
+    margin: 16px 0;
+    font-size: 1.2em;
+}

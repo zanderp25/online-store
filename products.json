@@ -1,0 +1,101 @@
+[
+    {
+        "id": "iphone-16",
+        "name": "iPhone 16",
+        "price": 799.00,
+        "images": [
+            "iphone_16.png"
+        ],
+        "category": "electronics",
+        "ratings": [
+            {
+                "stars": 5,
+                "body": "I love my new phone!",
+                "author": "iphone-lover",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 1,
+                "body": "i hate everything",
+                "author": "iphone-hater",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 4,
+                "body": "I like the phone, but the battery life is not good.",
+                "author": "battery-life-critic",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 5,
+                "body": "This phone isn't good as the Pro model, but it's still great!",
+                "author": "famous-photographer",
+                "createdOn": 1397490980837
+            }
+        ]
+    },
+    {
+        "id": "iphone-16-pro",
+        "name": "iPhone 16 Pro",
+        "price": 999.00,
+        "images": [
+            "iphone-16-pro.png"
+        ],
+        "category": "electronics",
+        "ratings": [
+            {
+                "stars": 5,
+                "body": "This phone is really useful for taking pictures. Amazing quality!",
+                "author": "famous-photographer",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 3,
+                "body": "I like the phone, but the battery life is not good.",
+                "author": "battery-life-critic",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 5,
+                "body": "I love my new phone!",
+                "author": "iphone-fangirl",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 1,
+                "body": "i hate everything",
+                "author": "iphone-hater",
+                "createdOn": 1397490980837
+            }
+        ]
+    },
+    {
+        "id": "rick-astley",
+        "name": "Never Gonna Give You Up",
+        "price": 1.69,
+        "images": [
+            "rick-astley.jpg"
+        ],
+        "category": "music",
+        "ratings": [
+            {
+                "stars": 5,
+                "body": "I love this song!",
+                "author": "80s-kid",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 1,
+                "body": "I hate this song!",
+                "author": "90s-kid",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 5,
+                "body": "I found this song after scanning a QR code on a hat.",
+                "author": "rick-roll-victim",
+                "createdOn": 1397490980837
+            }
+        ]
+    }
+]
