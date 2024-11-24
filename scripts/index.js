@@ -1,6 +1,4 @@
-function onLoad() {
-    fetchCategories();
-}
+document.addEventListener('DOMContentLoaded', fetchCategories);
 
 function fetchCategories() {
     fetch('categories.json')

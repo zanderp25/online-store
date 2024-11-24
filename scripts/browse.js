@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', onLoad);
+
 function onLoad() {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');
