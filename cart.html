@@ -7,16 +7,16 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx" src="scripts/components.jsx"></script>
-    <title>Online Store</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/product.css">
-    <script src="scripts/search.js"></script>
+    <link rel="stylesheet" href="styles/cart.css">
     <script src="scripts/cart.js"></script>
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/png">
 </head>
-<body onload="loadComponents();loadCart()">
+<body onload="loadComponents(); loadCart()">
     <main>
-        Hello, world!
+        <h1>Your Shopping Cart</h1>
+        <div id="cart-items"></div>
     </main>
 </body>
 </html>

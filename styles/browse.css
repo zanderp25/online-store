@@ -47,6 +47,19 @@
     color: #666;
 }
 
+.price-rating {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+.rating-stars img {
+    width: 20px;
+    height: 20px;
+}
+
 .add-to-cart {
     display: flex;
     align-items: center;

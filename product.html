@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx" src="scripts/components.jsx"></script>
-    <title>Online Store</title>
+    <title>Product Details</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/product.css">
     <script src="scripts/product.js"></script>
@@ -16,7 +16,24 @@
 </head>
 <body onload="loadComponents()">
     <main>
-        Hello, world!
+        <section id="product-details">
+            <img id="product-image" src="placeholder.jpg" alt="Product image">
+            <h1 id="product-name">Loading...</h1>
+            <p id="product-price">Loading price...</p>
+            <p id="product-description">Loading description...</p>
+            <ul id="product-ratings"></ul>
+            <button id="product-cart-button">Add to Cart</button>
+        </section>
     </main>
+    <script>
+        // Example: Passing product ID as a query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get("id");
+        if (productId) {
+            loadProduct(productId);
+        } else {
+            document.querySelector('#product-details').textContent = "No product ID provided.";
+        }
+    </script>
 </body>
 </html>

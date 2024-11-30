@@ -30,8 +30,8 @@ function fetchItemsByCategory(category) {
                 itemElement.innerHTML = `
                     <img src="assets/product-images/${item.images[0]}" alt="${item.name}">
                     <h3>${item.name}</h3>
-                    <p>${formatPrice(item.price)} | ${getRatingStars(item)}</p>
-                    <a href="#" onclick="addCartItem(${item.id})" class="add-to-cart">
+                    <p class="price-rating">${formatPrice(item.price)} | <span class="rating-stars">${getRatingStarsHTML(item)}</span></p>
+                    <a href="#" onclick="addCartItem('${item.id}')" class="add-to-cart">
                         <img src="assets/icons/cart-plus.svg" alt="add to cart">
                         <span>Add to Cart</span>
                     </a>
@@ -72,4 +72,26 @@ function getRatingStars(item) {
         }
     }
     return ratingStars;
+}
+
+function getRatingStarsHTML(item){
+    // Use this because for some reason Apple devices don't display the half-star character correctly
+    // use this to use the SVG stars in /assets/icons: star.svg, star-half.svg, star-filled.svg
+    const ratings = item.ratings;
+    if (!ratings) return 'No ratings yet';
+
+    let ratingStars = getRatingStars(item);
+    let ratingStarsHTML = '';
+
+    for (let i = 0; i < 5; i++) {
+        if (ratingStars[i] === '★') {
+            ratingStarsHTML += '<img src="assets/icons/star-filled.svg" alt="filled star">';
+        } else if (ratingStars[i] === '⯪') {
+            ratingStarsHTML += '<img src="assets/icons/star-half.svg" alt="half star">';
+        } else {
+            ratingStarsHTML += '<img src="assets/icons/star.svg" alt="empty star">';
+        }
+    }
+
+    return ratingStarsHTML;
 }
