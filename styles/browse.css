@@ -70,3 +70,13 @@
     height: 20px;
     filter: invert(100%);
 }
+
+@media (max-width: 683px) {
+    .items-list {
+        justify-content: center;
+    }
+
+    .item {
+        width: 100%;
+    }
+}

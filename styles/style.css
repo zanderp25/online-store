@@ -56,12 +56,12 @@ section h1 {
 .nav-icons {
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 45px;
+    gap: 1rem;
 }
 
 .nav-icons li {
     list-style: none;
-    margin-right: 1rem;
 }
 
 .nav-icons a {
@@ -70,7 +70,7 @@ section h1 {
 }
 
 .nav-icons img {
-    height: 50px;
+    height: 45px;
     width: auto;
 }
 
@@ -158,5 +158,21 @@ footer {
         flex-direction: row;
         margin-right: auto;
         width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .nav-icons {
+        height: 100%;
+    }
+    .nav-icons img {
+        height: 40px;
+        width: auto;
+    }
+}
+
+@media (max-width: 345px) {
+    .logo h1 {
+        display: none;
     }
 }

@@ -31,7 +31,7 @@ function fetchItemsByCategory(category) {
                     <img src="assets/product-images/${item.images[0]}" alt="${item.name}">
                     <h3>${item.name}</h3>
                     <p>${formatPrice(item.price)} | ${getRatingStars(item)}</p>
-                    <a href="#" onclick="addToCart(event)" class="add-to-cart">
+                    <a href="#" onclick="addCartItem(${item.id})" class="add-to-cart">
                         <img src="assets/icons/cart-plus.svg" alt="add to cart">
                         <span>Add to Cart</span>
                     </a>
