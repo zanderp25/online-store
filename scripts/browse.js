@@ -57,9 +57,9 @@ function getRatingStars(item) {
 
     const totalRatings = ratings.reduce((sum, rating) => sum + rating.stars, 0);
     const averageRating = totalRatings / ratings.length;
-    console.log(averageRating);
+    // console.log(averageRating);
     const roundedRating = Math.round(averageRating * 2) / 2;
-    console.log(roundedRating);
+    // console.log(roundedRating);
 
     let ratingStars = '';
     for (let i = 1; i <= 5; i++) {
@@ -72,9 +72,4 @@ function getRatingStars(item) {
         }
     }
     return ratingStars;
-}
-
-function addToCart(event) {
-    event.preventDefault();
-    // TODO: Add to cart logic here
 }
