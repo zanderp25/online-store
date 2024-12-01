@@ -4,7 +4,14 @@ async function search(event) {
 
     // Get the search query from the input field
     const query = document.querySelector("#search-query").value.trim().toLowerCase();
+    // Update the URL without reloading the page
+    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(query)}`;
+    window.history.pushState({ path: newUrl }, "", newUrl);
 
+    await loadList(query);
+}
+
+async function loadList(query) {
     try {
         // Fetch products from products.json
         const response = await fetch("products.json");
@@ -18,47 +25,49 @@ async function search(event) {
             product.category.toLowerCase().includes(query)
         );
 
-        // Get the items-list element to display results
-        const itemsListElement = document.querySelector(".items-list");
-
-        // Clear previous results
-        itemsListElement.innerHTML = "";
-
-        // Display results
-        if (results.length > 0) {
-            results.forEach(product => {
-                const productElement = document.createElement("div");
-                productElement.className = "item";
-                productElement.innerHTML = `
-                    <img src="assets/images/${product.images[0]}" alt="${product.name}" class="product-image">
-                    <h2>${product.name}</h2>
-                    <p>Category: ${product.category}</p>
-                    <p>Price: $${product.price.toFixed(2)}</p>
-                    <p>Average Rating: ${calculateAverageRating(product.ratings)} / 5</p>
-                    <button onclick="addToCart('${product.id}')">Add to Cart</button>
-                `;
-                itemsListElement.appendChild(productElement);
-            });
-        } else {
-            itemsListElement.innerHTML = "<p>No results found.</p>";
-        }
+        // Populate the cart with the results
+        populateList(results);
     } catch (error) {
         console.error("Error fetching or displaying products:", error);
         document.querySelector(".items-list").innerHTML = "<p>Error loading products. Please try again later.</p>";
     }
 }
 
-// Function to calculate average rating
-function calculateAverageRating(ratings) {
-    if (!ratings || ratings.length === 0) return "N/A";
-    const totalStars = ratings.reduce((sum, rating) => sum + rating.stars, 0);
-    return (totalStars / ratings.length).toFixed(1);
+function populateList(results) {
+    // Get the items-list element to display results
+    const itemsListElement = document.querySelector(".items-list");
+
+    // Clear previous results
+    itemsListElement.innerHTML = "";
+
+    // Display results
+    if (results.length > 0) {
+        results.forEach(product => {
+            console.log(product);
+            const productElement = document.createElement("div");
+            productElement.className = "item";
+            productElement.innerHTML = `
+                <img src="assets/product-images/${product.images[0]}" alt="${product.name}" class="product-image">
+                <h2>${product.name}</h2>
+                <div>Price: ${formatPrice(product.price)} | <span class="rating-stars">${getRatingStarsHTML(product)}</span></div>
+                <a href="#" onclick="addCartItem(event)" class="add-to-cart">
+                    <img src="assets/icons/cart-plus.svg" alt="add to cart">
+                    <span>Add to Cart</span>
+                </a>
+            `;
+            itemsListElement.appendChild(productElement);
+        });
+    } else {
+        itemsListElement.innerHTML = "<p>No results found.</p>";
+    }
 }
 
-// Placeholder function for adding products to the cart
-function addToCart(productId) {
-    console.log(`Product with ID "${productId}" added to the cart.`);
+function loadSearch(){
+    // Check if there's a "?query=" in the URL and load the cart accordingly
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get("q");
+    if (query) {
+        loadList(query.toLowerCase());
+        document.querySelector("#search-query").value = query;
+    }
 }
-
-// Add event listener to the search form
-document.querySelector(".search form").addEventListener("submit", search);

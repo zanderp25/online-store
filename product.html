@@ -16,14 +16,18 @@
 </head>
 <body onload="loadComponents()">
     <main>
-        <section id="product-details">
-            <img id="product-image" src="placeholder.jpg" alt="Product image">
-            <h1 id="product-name">Loading...</h1>
-            <p id="product-price">Loading price...</p>
+        <div id="product-details">
+            <img id="product-image" src="" alt="Product image">
+            <div>
+                <h1 id="product-name">Loading...</h1>
+                <p id="product-price">Loading price...</p>
+                <button id="product-cart-button">Add to Cart</button>
+            </div>
+        </div>
+        <div class="description-section">
             <p id="product-description">Loading description...</p>
             <ul id="product-ratings"></ul>
-            <button id="product-cart-button">Add to Cart</button>
-        </section>
+        </div>
     </main>
     <script>
         // Example: Passing product ID as a query parameter

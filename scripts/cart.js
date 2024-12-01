@@ -58,14 +58,20 @@ async function loadCart() {
             const cartItem = document.createElement('div');
             cartItem.className = 'cart-item';
 
+            let formattedQuantity = new Intl.NumberFormat('en-US').format(item.quantity);
+
             cartItem.innerHTML = `
-                <img src="assets/images/${product.images[0]}" alt="${product.name}" class="cart-item-image">
+                <img src="assets/product-images/${product.images[0]}" alt="${product.name}" class="cart-item-image">
                 <div class="cart-item-details">
                     <h3>${product.name}</h3>
-                    <p>Price: $${product.price.toFixed(2)}</p>
-                    <p>Quantity: ${item.quantity}</p>
-                    <p>Subtotal: $${(product.price * item.quantity).toFixed(2)}</p>
-                    <button onclick="removeCartItem('${id}')">Remove</button>
+                    <p>Price: ${formatPrice(product.price)}</p>
+                    <p>Quantity: ${formattedQuantity}</p>
+                    <p>Subtotal: ${formatPrice(product.price * item.quantity)}</p>
+                </div>
+                <div class="cart-item-actions">
+                    <button onclick="removeCartItem('${id}')" class="remove-button">Remove</button>
+                    <button onclick="adjustCartItem('${id}', ${item.quantity + 1})" class="inc-button">+</button>
+                    <button onclick="adjustCartItem('${id}', ${item.quantity - 1})" class="dec-button">-</button>
                 </div>
             `;
 
@@ -78,17 +84,43 @@ async function loadCart() {
         // Display total price
         const totalElement = document.createElement('div');
         totalElement.id = 'cart-total';
-        totalElement.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
+        totalElement.innerHTML = `<h3>Total: ${formatPrice(total)}</h3>`;
         cartItemsElement.appendChild(totalElement);
 
         // Add a clear cart button
         const clearButton = document.createElement('button');
         clearButton.textContent = 'Clear Cart';
+        clearButton.className = 'clear-cart-button';
         clearButton.onclick = clearCart;
         cartItemsElement.appendChild(clearButton);
     } catch (error) {
         console.error('Failed to load the cart:', error);
         document.querySelector('#cart-items').textContent = 'An error occurred while loading the cart.';
+    }
+}
+
+// Adjust quantity of an item in the cart
+function adjustCartItem(id, quantity) {
+    try {
+        // Get the current cart from localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+        // If the item exists in the cart, adjust its quantity
+        if (cart[id]) {
+            if (quantity === 0) {
+                delete cart[id];
+                console.log(`Item ${id} removed from the cart.`);
+            } else {
+                cart[id].quantity = quantity;
+                console.log(`Item ${id} quantity adjusted to ${quantity}.`);
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Reload the cart to reflect changes
+        loadCart();
+    } catch (error) {
+        console.error('Failed to adjust item quantity in the cart:', error);
     }
 }
 

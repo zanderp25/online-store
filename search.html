@@ -9,17 +9,18 @@
     <script type="text/jsx" src="scripts/components.jsx"></script>
     <title>Online Store</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/product.css">
+    <link rel="stylesheet" href="styles/search.css">
     <script src="scripts/search.js"></script>
+    <script src="scripts/browse.js"></script>
     <script src="scripts/cart.js"></script>
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/png">
 </head>
-<body onload="loadComponents()">
+<body onload="loadComponents(); loadSearch();">
     <main>
         <section class="search">
             <h1>Search</h1>
-            <form onsubmit="search()">
-                <input type="text" name="query" id="search-query" placeholder="Search for products">
+            <form onsubmit="search(event)">
+                <input type="text" name="q" id="search-query" placeholder="Search for products">
                 <button type="submit">Search</button>
             </form>
         </section>

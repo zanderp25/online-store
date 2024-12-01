@@ -1,11 +1,84 @@
 [
     {
+        "id": "airpods-max",
+        "name": "Apple AirPods Max",
+        "price": 549.00,
+        "images": [
+            "airpods_max.png"
+        ],
+        "description": "The ultimate listening experience. Over-ear headphones with Active Noise Cancellation, Transparency mode, and spatial audio.",
+        "category": "electronics",
+        "ratings": [
+            {
+                "stars": 5,
+                "body": "Best noise-canceling headphones I've ever owned.",
+                "author": "audiophile",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 3,
+                "body": "Great sound, but too expensive.",
+                "author": "budget-conscious",
+                "createdOn": 1397490980837
+            }
+        ]
+    },
+    {
+        "id": "galaxy-watch-6",
+        "name": "Samsung Galaxy Watch 6",
+        "price": 349.99,
+        "images": [
+            "galaxy_watch_6.png"
+        ],
+        "description": "Stay connected and healthy with this smartwatch. Features include fitness tracking, sleep monitoring, and heart rate monitoring.",
+        "category": "electronics",
+        "ratings": [
+            {
+                "stars": 4,
+                "body": "The fitness tracking is excellent.",
+                "author": "fitness-enthusiast",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 5,
+                "body": "Stylish and functional!",
+                "author": "tech-geek",
+                "createdOn": 1397490980837
+            }
+        ]
+    },
+    {
+        "id": "harry-potter-boxset",
+        "name": "Harry Potter Box Set",
+        "price": 75.00,
+        "images": [
+            "harry_potter_boxset.png"
+        ],
+        "description": "The complete Harry Potter series in a collectible box set. A perfect gift for fans of the wizarding world.",
+        "category": "books",
+        "ratings": [
+            {
+                "stars": 5,
+                "body": "A magical experience!",
+                "author": "bookworm",
+                "createdOn": 1397490980837
+            },
+            {
+                "stars": 4,
+                "body": "The books are great, but the box was slightly damaged.",
+                "author": "collector",
+                "createdOn": 1397490980837
+            }
+        ]
+    },
+    {
         "id": "iphone-16",
-        "name": "iPhone 16",
+        "name": "Apple iPhone 16",
         "price": 799.00,
         "images": [
             "iphone_16.png"
         ],
+        "description": "The latest iPhone with a 6.1-inch Super Retina XDR display, Ceramic Shield, and A14 Bionic chip.",
         "category": "electronics",
         "ratings": [
             {
@@ -36,11 +109,12 @@
     },
     {
         "id": "iphone-16-pro",
-        "name": "iPhone 16 Pro",
+        "name": "Apple iPhone 16 Pro",
         "price": 999.00,
         "images": [
             "iphone-16-pro.png"
         ],
+        "description": "The latest iPhone Pro with a 6.1-inch Super Retina XDR display, Ceramic Shield, and A14 Bionic chip.",
         "category": "electronics",
         "ratings": [
             {
@@ -76,6 +150,7 @@
         "images": [
             "rick-astley.jpg"
         ],
+        "description": "The iconic song by Rick Astley. Never gonna give you up, never gonna let you down. Rickroll your friends with this!",
         "category": "music",
         "ratings": [
             {
@@ -99,81 +174,13 @@
         ]
     },
     {
-        "id": "galaxy-watch-6",
-        "name": "Galaxy Watch 6",
-        "price": 349.99,
-        "images": [
-            "galaxy_watch_6.png"
-        ],
-        "category": "electronics",
-        "ratings": [
-            {
-                "stars": 4,
-                "body": "The fitness tracking is excellent.",
-                "author": "fitness-enthusiast",
-                "createdOn": 1397490980837
-            },
-            {
-                "stars": 5,
-                "body": "Stylish and functional!",
-                "author": "tech-geek",
-                "createdOn": 1397490980837
-            }
-        ]
-    },
-    {
-        "id": "airpods-max",
-        "name": "AirPods Max",
-        "price": 549.00,
-        "images": [
-            "airpods_max.png"
-        ],
-        "category": "electronics",
-        "ratings": [
-            {
-                "stars": 5,
-                "body": "Best noise-canceling headphones I've ever owned.",
-                "author": "audiophile",
-                "createdOn": 1397490980837
-            },
-            {
-                "stars": 3,
-                "body": "Great sound, but too expensive.",
-                "author": "budget-conscious",
-                "createdOn": 1397490980837
-            }
-        ]
-    },
-    {
-        "id": "harry-potter-boxset",
-        "name": "Harry Potter Box Set",
-        "price": 75.00,
-        "images": [
-            "harry_potter_boxset.png"
-        ],
-        "category": "books",
-        "ratings": [
-            {
-                "stars": 5,
-                "body": "A magical experience!",
-                "author": "bookworm",
-                "createdOn": 1397490980837
-            },
-            {
-                "stars": 4,
-                "body": "The books are great, but the box was slightly damaged.",
-                "author": "collector",
-                "createdOn": 1397490980837
-            }
-        ]
-    },
-    {
         "id": "yoga-mat",
         "name": "Eco-Friendly Yoga Mat",
         "price": 29.99,
         "images": [
             "yoga_mat.png"
         ],
+        "description": "A high-quality yoga mat made from eco-friendly materials. Perfect for daily yoga sessions.",
         "category": "fitness",
         "ratings": [
             {

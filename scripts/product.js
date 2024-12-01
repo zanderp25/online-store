@@ -22,7 +22,7 @@ async function loadProduct(productId) {
         // Fill the respective elements with product values
         document.querySelector("#product-name").textContent = product.name || "N/A";
         document.querySelector("#product-price").textContent = `$${product.price.toFixed(2)}`;
-        document.querySelector("#product-image").src = `assets/images/${product.images[0] || "placeholder.jpg"}`;
+        document.querySelector("#product-image").src = `assets/product-images/${product.images[0] || "placeholder.jpg"}`;
         document.querySelector("#product-image").alt = product.name || "Product image";
         document.querySelector("#product-description").textContent = product.description || "No description available.";
         document.querySelector("#product-cart-button").onclick = () => {addCartItem(product.id)};

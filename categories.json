@@ -7,36 +7,16 @@
     {
         "id": "music",
         "name": "Music",
-        "image": "music.jpg"
+        "image": "music.png"
     },
     {
         "id": "books",
         "name": "Books",
-        "image": "books.jpg"
+        "image": "books.png"
     },
     {
         "id": "fitness",
         "name": "Fitness",
-        "image": "fitness.jpg"
-    },
-    {
-        "id": "fashion",
-        "name": "Fashion",
-        "image": "fashion.jpg"
-    },
-    {
-        "id": "home-appliances",
-        "name": "Home Appliances",
-        "image": "home_appliances.jpg"
-    },
-    {
-        "id": "toys",
-        "name": "Toys",
-        "image": "toys.jpg"
-    },
-    {
-        "id": "gaming",
-        "name": "Gaming",
-        "image": "gaming.jpg"
+        "image": "fitness.png"
     }
 ]
