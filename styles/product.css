@@ -1,4 +1,4 @@
-#product-details {
+.product-details {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -9,7 +9,7 @@
     margin-bottom: 2rem;
 }
 
-#product-details div {
+.product-details div {
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -59,6 +59,29 @@
 #product-ratings {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    width: 700px;
+    gap: 10px;
     list-style: none;
 }
+
+#product-ratings li {
+    line-height: 1.5;
+}
+
+.rating-stars {
+    display: inline-flex;
+    flex-direction: row;
+    translate: 0 3px;
+}
+
+.author {
+    font-size: 1.2em;
+    color: #666;
+    font-style: italic;
+}
+
+.rating-stars img {
+    width: 20px;
+    height: 20px;
+}
+

@@ -21,7 +21,7 @@ async function loadProduct(productId) {
 
         // Fill the respective elements with product values
         document.querySelector("#product-name").textContent = product.name || "N/A";
-        document.querySelector("#product-price").textContent = `$${product.price.toFixed(2)}`;
+        document.querySelector("#product-price").textContent = formatPrice(product.price) || "N/A";
         document.querySelector("#product-image").src = `assets/product-images/${product.images[0] || "placeholder.jpg"}`;
         document.querySelector("#product-image").alt = product.name || "Product image";
         document.querySelector("#product-description").textContent = product.description || "No description available.";
@@ -33,7 +33,12 @@ async function loadProduct(productId) {
         if (product.ratings && product.ratings.length > 0) {
             product.ratings.forEach(rating => {
                 const li = document.createElement("li");
-                li.textContent = `${rating.stars}★ - ${rating.body} (by ${rating.author})`;
+                let stars = getRatingStarsHTML(rating.stars);
+                let formattedDate = new Date(rating.createdOn).toLocaleDateString();
+                li.innerHTML = `
+                    <span class="rating-stars">${stars}</span> | <span class="author">${rating.author}</span>
+                    <div>${rating.body}</div>
+                `;
                 ratingsElement.appendChild(li);
             });
         } else {
@@ -44,4 +49,23 @@ async function loadProduct(productId) {
         console.error("Failed to load the product:", error);
         document.querySelector("#product-details").textContent = "An error occurred while loading the product.";
     }
+}
+
+function formatPrice(price) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    }).format(price);
+}
+
+function getRatingStarsHTML(stars) {
+    let ratingStars = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= stars) {
+            ratingStars += '<img src="assets/icons/star-filled.svg" alt="filled star">';
+        } else {
+            ratingStars += '<img src="assets/icons/star.svg" alt="empty star">';
+        }
+    }
+    return ratingStars;
 }
