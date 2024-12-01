@@ -14,11 +14,49 @@ function addCartItem(id) {
         // Save the updated cart to localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
 
+        // Show a success message
+        showPopup('Item added to cart', 'success');
+
         console.log(`Item ${id} added to the cart.`);
     } catch (error) {
         console.error('Failed to add item to the cart:', error);
     }
 }
+
+// showPopup function
+function showPopup(message, type = 'success') {
+    if (!document.querySelector('.popup-container')) {
+        const popupContainer = document.createElement('div');
+        popupContainer.className = 'popup-container';
+        popupContainer.style.position = 'fixed';
+        popupContainer.style.top = '85px';
+        popupContainer.style.right = '10px';
+        popupContainer.style.zIndex = '1000';
+        popupContainer.style.display = 'flex';
+        popupContainer.style.flexDirection = 'column';
+        popupContainer.style.alignItems = 'flex-end';
+        popupContainer.style.justifyContent = 'flex-start';
+        document.body.appendChild(popupContainer);
+    }
+
+    const popupContainer = document.querySelector('.popup-container');
+    const popup = document.createElement('div');
+    popup.style.padding = '10px 20px';
+    popup.style.margin = '5px';
+    popup.style.borderRadius = '5px';
+    popup.style.color = 'white';
+    popup.style.fontWeight = 'bold';
+    popup.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+    popup.style.cursor = 'pointer';
+    popup.textContent = message;
+    popup.style.backgroundColor = type === 'success' ? 'green' : 'red';
+    popup.onclick = () => popup.remove();
+    popupContainer.appendChild(popup);
+    setTimeout(() => popup.remove(), 2000);
+}
+
+// global products list
+let products = [];
 
 // Load the cart and display items
 async function loadCart() {
@@ -28,7 +66,7 @@ async function loadCart() {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const products = await response.json();
+        products = await response.json();
 
         // Get the current cart from localStorage or initialize an empty object
         const cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -130,6 +168,14 @@ function removeCartItem(id) {
         // Get the current cart from localStorage
         const cart = JSON.parse(localStorage.getItem('cart')) || {};
 
+        // If the item exists in the cart and quantity is more than one, confirm removal
+        if (cart[id] && cart[id].quantity > 1) {
+            const product = products.find(p => p.id === id);
+            const confirmRemoval = confirm(`Are you sure you want to remove all ${product.name}?`);
+            if (!confirmRemoval) {
+            return;
+            }
+        }
         // If the item exists in the cart, remove it
         if (cart[id]) {
             delete cart[id];
@@ -148,6 +194,10 @@ function removeCartItem(id) {
 function clearCart() {
     try {
         // Remove the cart from localStorage
+        const confirmClear = confirm('Are you sure you want to clear the cart?');
+        if (!confirmClear) {
+            return;
+        }
         localStorage.removeItem('cart');
         console.log('Cart cleared.');
 

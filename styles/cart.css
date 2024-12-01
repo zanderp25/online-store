@@ -1,6 +1,9 @@
 h1 {
     text-align: center;
-    margin-top: 1rem;
+}
+
+main {
+    margin-top: 2rem;
 }
 
 #cart-items {
