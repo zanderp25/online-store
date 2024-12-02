@@ -85,3 +85,25 @@
     height: 20px;
 }
 
+@media (max-width: 760px){
+    .product-details div {
+        width: 90%;
+    }
+
+    .product-details {
+        flex-direction: column;
+    }
+
+    #product-name {
+        font-size: 3em;
+    }
+
+    .description-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #product-ratings {
+        width: 100%;
+    }
+}
