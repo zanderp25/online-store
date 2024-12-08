@@ -8,3 +8,5 @@ This is a concept for an online store made for CAP 4104: Human Computer Interact
 
 This work includes icons from the Dazzle Line Icons Collection by Dazzle UI, used under the [Creative Commons Attribution License](https://www.svgrepo.com/page/licensing/#CC%20Attribution). The icons are used for the purpose of this project and are not intended for commercial use.
 The icon pack can be found here: [Dazzle Line Icons Collection](https://www.svgrepo.com/collection/dazzle-line-icons/)
+
+This project also includes `react`, react-dom`, and `babel` js modules because npm hates me for some reason.
