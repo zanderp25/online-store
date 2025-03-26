@@ -3,6 +3,7 @@
 By: Alexander Picon, Jonathan Marcia, and Johnkerby Joseph
 
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/zanderp25/online-store/badge)](https://securityscorecards.dev/viewer/?uri=github.com/zanderp25/online-store)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/10339/badge)](https://www.bestpractices.dev/projects/10339)
 
 ## Description
 
